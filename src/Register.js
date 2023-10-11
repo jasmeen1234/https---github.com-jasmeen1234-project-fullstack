@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
+import './login.css'
 const Register = () => {
 
     const [getData,setData] = useState({
@@ -26,27 +27,29 @@ const Register = () => {
     }
 
     return (<div className="container">
-        <div className="col-4"></div>
-        <div className="col-4">
-            <form>
-
-                <div className="form-group">
+        
+        <div className='logo'>logo</div>
+            <form className="main-user">
+              <div className="form">
+                <div  >
                     <label htmlFor="userName">User Name</label>
-                    <input type="text" className="form-control" onChange={onChangeHandler} name="userName" />
+                    <input type="text" className="form" onChange={onChangeHandler} name="userName" />
                 </div>
-                <div className="form-group">
+                <div >
                     <label htmlFor="email">Email address</label>
-                    <input type="email" className="form-control" onChange={onChangeHandler} name="email" />
+                    <input type="email" className="form" onChange={onChangeHandler} name="email" />
                 </div>
-                <div className="form-group">
+                <div >
                     <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" onChange={onChangeHandler} name="password" />
+                    <input type="password" className="form" onChange={onChangeHandler} name="password" />
                 </div>
 
                 <button type="submit" onClick={onSubmitHandler} className="btn btn-primary">Submit</button>
+                </div>
             </form>
-        </div>
-        <div className="col-4"></div>
+            
+    
+       
 
     </div>)
 }

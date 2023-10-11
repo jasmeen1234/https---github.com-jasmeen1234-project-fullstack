@@ -1,6 +1,63 @@
 /* .login{ */
     /* background-image: url('logo.jpg'); */
   /* } */
-  .submit{
-    border-radius: 20px;
+  
+  .container{
+    background-image: url("C:\Users\JASMEEN BANO\OneDrive\Desktop\project-fullstack\frontend\src\imagefile\login-bg-1 (1).svg");
+    height: 400px;
+    
+    /* width: 500px;  */
+position: fixed;
+    /* color:antiquewhite */
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ justify-content: space-around;
+ gap: 500px;
+ z-index: 2;
+  }
+  .logo{
+    background-image: url("file:///C:/Users/JASMEEN%20BANO/OneDrive/Desktop/project-fullstack/frontend/src/imagefile/Logo.svg");
+    height: 500px;
+    width: 200px;
+  }
+
+  .main-user{
+    
+margin-top: 300px;
+position: fixed;
+    padding: 20px; 
+    
+   background-color: aliceblue; 
+    
+    height: 300px;
+    width: 300px;
+     
+   
+       /* margin-top: 400px;   */
+    
+    border: 1px solid black;
+    
+    /* justify-content: center;  */
+    
+   
+  }
+  .main1{
+    /* margin: 200px; */
+      /* margin-top: 400px;  */
+    /* margin-right: auto; */
+     /* margin-bottom: 500px;  */
+     /* background-color: aliceblue;  */
+  }
+  .form{
+    /* margin: 5px;
+    padding: 5px; */
+    /* display: flex; */
+    /* justify-content: center;
+    text-align: center;
+    margin-top: 400px; */
+     
+    
   }
