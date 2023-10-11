@@ -6,28 +6,31 @@
     background-image: url("C:\Users\JASMEEN BANO\OneDrive\Desktop\project-fullstack\frontend\src\imagefile\login-bg-1 (1).svg");
     height: 400px;
     
-    /* width: 500px;  */
-position: fixed;
-    /* color:antiquewhite */
+
+   
     margin: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
- justify-content: space-around;
- gap: 500px;
- z-index: 2;
+ 
+ 
+  }
+  .btn{
+    margin-left: 80px;
+    margin-top: 30px;
+    
+
   }
   .logo{
-    background-image: url("file:///C:/Users/JASMEEN%20BANO/OneDrive/Desktop/project-fullstack/frontend/src/imagefile/Logo.svg");
-    height: 500px;
-    width: 200px;
+    /* background-image: url("../public/Logo.svg"); */
+    width: 100px;
   }
 
   .main-user{
     
-margin-top: 300px;
-position: fixed;
+/* margin-top: 300px; */
+/* position: fixed; */
     padding: 20px; 
     
    background-color: aliceblue; 

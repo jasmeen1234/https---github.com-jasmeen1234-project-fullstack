@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
-import './login.css'
+// import './login.css'
 const Register = () => {
 
     const [getData,setData] = useState({
@@ -49,7 +49,7 @@ const Register = () => {
             </form>
             
     
-       
+          
 
     </div>)
 }

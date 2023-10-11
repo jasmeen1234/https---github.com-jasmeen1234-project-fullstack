@@ -31,16 +31,17 @@ const Login = () => {
          })
     }
 
-    return (<div className="container">
-        
-        <div className="main1">
+    return (
+    <div className="container">
+        <div className="logo"><img src="./Logo.svg" alt="logo"/></div>
+        <div >
            {getError && <h1 style={{color:'red'}}>{getError}</h1>} 
-            <form>
-                <div className="main-user">
+            <form className="main-user">
+                <div >
                     <label htmlFor="email">Email address</label>
                     <input type="email" className="form-control" onChange={onChangeHandler} name="email" />
                 </div>
-                <div className="main-user">
+                <div >
                     <label htmlFor="password">Password</label>
                     <input type="password" className="form-control" onChange={onChangeHandler} name="password" />
                 </div>
@@ -48,7 +49,7 @@ const Login = () => {
                 <button type="submit" onClick={onSubmitHandler} className="btn btn-primary">Submit</button>
             </form>
         </div>
-        <div className="main"></div>
+     
 
     </div>)
 }
