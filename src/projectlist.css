@@ -1,0 +1,8 @@
+.main-row{
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn-active{
+    color: aqua;
+    background-color: antiquewhite;
+}
