@@ -1,9 +1,11 @@
 import React, {useEffect,  useState } from 'react';
 import Data from './Data.json'
 import './projectlist.css'
+import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 const ProjectList = () => {
 //   
+let[projects, setProjects]=useState({status:"",_id:""});
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 10; // Number of projects per page
   const [searchText, setSearchText] = useState('');
@@ -18,16 +20,16 @@ const ProjectList = () => {
   const [records, setRecords]=useState([]);
 const npage=Math.ceil(Data.length/recordsPerPage)
 const numbers=[...Array(npage + 1).keys()].slice(1)
-const handleStatusChange=(project,updatedStatus)=>{
-  project.status=updatedStatus;
+const  handleStatusChange= async (project,updatedStatus)=>{
+  // project.status=updatedStatus;
+  setProjects({status:updatedStatus,_id:project._id});
+  console.log("status update ", project, updatedStatus);
   setRecords([...records]);
-  fetch(`http://localhost:8080/project/${project._id}`, {
+  await axios.patch(`http://localhost:8080/api/project/${project._id}`, {
 
-  method: 'PATCH',
-  
-  
-  
-  body: JSON.stringify(project)
+  // method: 'PATCH',
+  // body: JSON.stringify({...project, status:updatedStatus})
+  ...project, status:updatedStatus
   
   })
   
@@ -56,12 +58,13 @@ const handleStatusChange=(project,updatedStatus)=>{
 }
 //   // Handle page change
  useEffect(()=>{
-fetch("http://localhost:8080/project").then((response)=>response.json())
+  fetch("http://localhost:8080/project").then((response)=>response.json())
 .then((data)=>{
 console.log(data);
+console.log(projects);
 setRecords(data);
  })
- },[])
+ },[projects.status,projects._id])
 
   return (
     <div>
@@ -100,9 +103,9 @@ setRecords(data);
               <td>{project.location}</td>
               <td>{project.status}</td>
               <td className="btn-active">
-                <button  onClick={()=>handleStatusChange(project,"Running")}>Start</button>
-                <button onClick={()=>handleStatusChange(project,"Closed")}>Close</button>
-                <button  onClick={()=>handleStatusChange(project,"Register")}>Cancel</button>
+                <button  onClick={()=>handleStatusChange(project,"running")}>Start</button>
+                <button onClick={()=>handleStatusChange(project,"close")}>Close</button>
+                <button  onClick={()=>handleStatusChange(project,"register")}>Cancel</button>
               </td>
             </tr>
           ))}
