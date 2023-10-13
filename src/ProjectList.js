@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect,  useState } from 'react';
 import Data from './Data.json'
 import './projectlist.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -6,50 +6,103 @@ const ProjectList = () => {
 //   
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 10; // Number of projects per page
+  const [searchText, setSearchText] = useState('');
 
+  const handleInputChange = (e) => {
+    setSearchText(e.target.value);
+  };
 //   // Calculate the indexes of projects to display on the current page
   const indexOfLastProject = currentPage * recordsPerPage;
   const indexOfFirstProject = indexOfLastProject - recordsPerPage;
-  const records = Data.slice(indexOfFirstProject, indexOfLastProject);
+  // const records = Data.slice(indexOfFirstProject, indexOfLastProject);
+  const [records, setRecords]=useState([]);
 const npage=Math.ceil(Data.length/recordsPerPage)
 const numbers=[...Array(npage + 1).keys()].slice(1)
+const handleStatusChange=(project,updatedStatus)=>{
+  project.status=updatedStatus;
+  setRecords([...records]);
+  fetch(`http://localhost:8080/project/${project._id}`, {
+
+  method: 'PATCH',
+  
+  
+  
+  body: JSON.stringify(project)
+  
+  })
+  
+  .then(response => {
+  
+  if (!response.ok) {
+  
+  throw new Error('Network response was not ok');
+  
+  }
+  
+  return response.json();
+  
+  })
+  
+  .then(data => {
+  
+  // Handle the response data
+  console.log(data);
+  
+  })
+  
+  .catch(error => {
+  
+  });
+}
 //   // Handle page change
-//  
+ useEffect(()=>{
+fetch("http://localhost:8080/project").then((response)=>response.json())
+.then((data)=>{
+console.log(data);
+setRecords(data);
+ })
+ },[])
 
   return (
     <div>
-      <h2>Project List</h2>
+      <h2 className='projectlist'>Project List</h2>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchText}
+          onChange={handleInputChange}
+        /></div>
       <table className="table">
         <thead >
           <tr >
             <th>Project Name</th>
             <th>Reason</th>
             <th>Type</th>
-            <th>Division</th>
+            <th>division</th>
             <th>Category</th>
-            <th>Priority</th>
             <th>Dept</th>
             <th>Location</th>
             <th>Status</th>
-            <th>Action</th>
+            
           </tr>
         </thead>
         <tbody>
           {records.map((project, i) => (
             <tr   key={i}>
-              <td>{project. Project}</td>
-              <td>{project.Reason}</td>
-              <td>{project.Type}</td>
-              <td>{project.Division}</td>
-              <td>{project.Category}</td>
-              <td>{project.Priority}</td>
-              <td>{project.Dept}</td>
-              <td>{project.Location}</td>
-              <td>{project.Status}</td>
+              <td>{project.name}</td>
+              <td>{project.reason}</td>
+              <td>{project.type}</td>
+              <td>{project.division}</td>
+              <td>{project.cateogary}</td>
+              <td>{project.priority}</td>
+              <td>{project.dept}</td>
+              <td>{project.location}</td>
+              <td>{project.status}</td>
               <td className="btn-active">
-                <button >Start</button>
-                <button >Close</button>
-                <button >Cancel</button>
+                <button  onClick={()=>handleStatusChange(project,"Running")}>Start</button>
+                <button onClick={()=>handleStatusChange(project,"Closed")}>Close</button>
+                <button  onClick={()=>handleStatusChange(project,"Register")}>Cancel</button>
               </td>
             </tr>
           ))}

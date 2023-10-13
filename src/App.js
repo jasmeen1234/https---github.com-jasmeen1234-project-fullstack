@@ -5,6 +5,7 @@ import Login from './Login';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import ProjectList from './ProjectList';
 import Sidebar from './sidebar/Sidebar';
+import DashBoard from './DashBoard';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
        {/* <Route path='/' element={<Register/>}/> */}
        <Route path='/login' element={<Login/>}/>
        <Route path='/projectlist' element={<ProjectList/>}/>
+       <Route path='/dashboard' element={<DashBoard/>}/>
        </Routes>
       </BrowserRouter>
      

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./CreatProjectMain.css";
+import "./CreatProject.css";
 // import { ReactComponent as Logo } from "../image/Logocopy.svg";
 
 
@@ -9,7 +9,7 @@ function CreateProject() {
     <main className="CreatprojectMain-container">
       <div className="CreatprojectMain-title">
         <div>
-          {/* <Logo /> */}
+      
         </div>
       </div>
 
@@ -20,7 +20,7 @@ function CreateProject() {
               className="Creatprojectmaintextarea"
               placeholder="Enter Project Theme"
             />
-            <button className="mainbtn">Submit</button>
+            <button className="btn btn-primary">Save Project</button>
           </div>
           <form action="post" className="projectform">
             <div className="Creatprojectform">
