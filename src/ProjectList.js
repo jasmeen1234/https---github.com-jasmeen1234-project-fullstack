@@ -84,6 +84,7 @@ setRecords(data);
             <th>Type</th>
             <th>division</th>
             <th>Category</th>
+            <th>Priority</th>
             <th>Dept</th>
             <th>Location</th>
             <th>Status</th>
@@ -97,15 +98,16 @@ setRecords(data);
               <td>{project.reason}</td>
               <td>{project.type}</td>
               <td>{project.division}</td>
-              <td>{project.cateogary}</td>
+              <td>{project.category}</td>
               <td>{project.priority}</td>
               <td>{project.dept}</td>
               <td>{project.location}</td>
               <td>{project.status}</td>
               <td className="btn-active">
-                <button  onClick={()=>handleStatusChange(project,"running")}>Start</button>
-                <button onClick={()=>handleStatusChange(project,"close")}>Close</button>
-                <button  onClick={()=>handleStatusChange(project,"register")}>Cancel</button>
+                <button className="btn btn-primary" onClick={()=>handleStatusChange(project,"running")}>Start</button>
+                <button className="btn btn-primary" onClick={()=>handleStatusChange(project,"close")}>Close</button>
+                <button className="btn btn-primary"
+               onClick={()=>handleStatusChange(project,"register")}>Cancel</button>
               </td>
             </tr>
           ))}

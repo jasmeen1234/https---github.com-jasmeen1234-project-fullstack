@@ -1,16 +1,54 @@
-import React from 'react'
+import React,{useState} from 'react'
+import axios from 'axios'
 import "./CreatProject.css";
-// import { ReactComponent as Logo } from "../image/Logocopy.svg";
 
+ let initialValue={
+  name:"",
+  reason: 'Business',
+ category: 'Quality A',
+ start_date: '',
+ type: 'Internal',
+ priority: 'High',
+ end_date: '',
+ division: 'Filters',
+ dept: 'Startegy',
+ location: 'Pune'
+}
 
 function CreateProject() {
+  const[handle, setHandle]=useState(initialValue);
+function projectHandler(){
+console.log(handle);
 
+ axios.post("http://localhost:8080/createproject",handle)
+.then((data)=>{
+console.log(data);
+
+// setHandle(data);
+ })
+.catch(error=>{
+console.log(error)
+});
+
+alert("your data successfully save");
+setHandle(
+  initialValue
+  );
+}
+const handleInputChange =(e)=>{
+  const{name, value}=e.target;
+  setHandle({
+    ...handle, [name]:value,
+  
+  });
+  
+  
+};
   return (
     <main className="CreatprojectMain-container">
       <div className="CreatprojectMain-title">
-        <div>
-      
-        </div>
+       
+        
       </div>
 
       <div className="CreatprojectMain-cards">
@@ -18,20 +56,20 @@ function CreateProject() {
           <div className="textareaandbtn">
             <textarea
               className="Creatprojectmaintextarea"
-              placeholder="Enter Project Theme"
+              placeholder="Enter Project Theme" name="name" value={handle.name} onChange={handleInputChange}
             />
-            <button className="btn btn-primary">Save Project</button>
+            <button className="btn btn-primary" onClick={projectHandler}>Save Project</button>
           </div>
           <form action="post" className="projectform">
             <div className="Creatprojectform">
               <label htmlFor="Reason">Reason</label>
-              <select id="Reason" className="Creatprojectformfild">
+              <select id="Reason" className="Creatprojectformfild" name="reason" value={handle.reason} onChange={handleInputChange}>
                 <option value="Business">For Business</option>
                 <option value="Dealership">For Dealership</option>
                 <option value="Transport">For Transport</option>
               </select>
               <label htmlFor="Category">Category</label>
-              <select id="Category" className="Creatprojectformfild">
+              <select id="Category" className="Creatprojectformfild" name="category" value={handle.category} onChange={handleInputChange}>
                 <option value="Quality A">Quality A</option>
                 <option value="Quality B">Quality B</option>
                 <option value="Quality C">Quality C</option>
@@ -44,15 +82,15 @@ function CreateProject() {
                 className="Creatprojectforminput"
               />
             </div>
-            <div className="Creatprojectform">
+            <div className="Creatprojectform"  >
               <label htmlFor="Type">Type</label>
-              <select id="Type" className="Creatprojectformfild">
+              <select id="Type" className="Creatprojectformfild" name="type" value={handle.type} onChange={handleInputChange}>
                 <option value="Internal">Internal</option>
                 <option value="External">External</option>
                 <option value="Vendor">Vendor</option>
               </select>
               <label htmlFor="Priority">Priority</label>
-              <select id="Priority" className="Creatprojectformfild">
+              <select id="Priority" className="Creatprojectformfild" name="priority" value={handle.priority} onChange={handleInputChange}>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
                 <option value="Low">Low</option>
@@ -66,7 +104,7 @@ function CreateProject() {
             </div>
             <div className="Creatprojectform">
               <label htmlFor="Division">Division</label>
-              <select id="Division" className="Creatprojectformfild">
+              <select id="Division" className="Creatprojectformfild" name="division" value={handle.division} onChange={handleInputChange}>
                 <option value="Filters">Filters</option>
                 <option value="Compressor">Compressor</option>
                 <option value="Pumps">Pumps</option>
@@ -74,7 +112,7 @@ function CreateProject() {
                 <option value="Water Heater">Water Heater</option>
               </select>
               <label htmlFor="Department">Department</label>
-              <select id="Department" className="Creatprojectformfild">
+              <select id="Department" className="Creatprojectformfild" name="dept" value={handle.dept} onChange={handleInputChange}>
                 <option value="Startegy">Startegy</option>
                 <option value="Finance">Finance</option>
                 <option value="Quality">Quality</option>
@@ -82,7 +120,7 @@ function CreateProject() {
                 <option value="Stores">Stores</option>
               </select>
               <label htmlFor="Location">Location</label>
-              <select id="Location" className="Creatprojectformfild">
+              <select id="Location" className="Creatprojectformfild" name="location" value={handle.location} onChange={handleInputChange}>
                 <option value="Pune">Pune</option>
                 <option value="Ranchi">Ranchi</option>
                 <option value="Delhi">Delhi</option>
