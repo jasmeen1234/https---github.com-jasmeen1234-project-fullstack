@@ -5,7 +5,13 @@
     color: rgba(255, 255, 255, 0.95);
     background-image: url('C:\Users\JASMEEN BANO\OneDrive\Desktop\project-fullstack\frontend\src\imagefile\Headerbg.svg');
     background-repeat: no-repeat;
-    top: 0;
+    
+   
+}
+.logo{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
 }
 .CreatprojectMain-title {
     display: flex;

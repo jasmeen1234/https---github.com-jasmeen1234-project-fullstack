@@ -1,10 +1,13 @@
 .dashboard{
    color:aliceblue;
     background-image: url("C:\Users\JASMEEN BANO\OneDrive\Desktop\project-fullstack\frontend\src\imagefile\Headerbg.svg");
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
 }
 .sts-field{
-    height: 60px;
-    width: 120px;
+    height: 100px;
+    width: 150px;
     border: 2px solid black;
 }
 .status{

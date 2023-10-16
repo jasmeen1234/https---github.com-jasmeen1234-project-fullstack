@@ -1,6 +1,4 @@
-/* .login{ */
-    /* background-image: url('logo.jpg'); */
-  /* } */
+
   
   .container{
     background-image: url("C:\Users\JASMEEN BANO\OneDrive\Desktop\project-fullstack\frontend\src\imagefile\login-bg-1 (1).svg");
@@ -16,6 +14,9 @@
  
  
   }
+  .para{
+    color: aliceblue;
+  }
   .btn{
     margin-left: 80px;
     margin-top: 30px;
@@ -23,8 +24,10 @@
 
   }
   .logo{
-    /* background-image: url("../public/Logo.svg"); */
+    
     width: 100px;
+    /* height: 80px; */
+    color: aliceblue;
   }
 
   .main-user{
@@ -47,20 +50,6 @@
     
    
   }
-  .main1{
-    /* margin: 200px; */
-      /* margin-top: 400px;  */
-    /* margin-right: auto; */
-     /* margin-bottom: 500px;  */
-     /* background-color: aliceblue;  */
-  }
-  .form{
-    /* margin: 5px;
-    padding: 5px; */
-    /* display: flex; */
-    /* justify-content: center;
-    text-align: center;
-    margin-top: 400px; */
-     
-    
-  }
+ 
+  
+  

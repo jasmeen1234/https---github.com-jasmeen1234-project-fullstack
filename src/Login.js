@@ -1,14 +1,16 @@
 import {useState} from 'react';
 import axios from 'axios';
 import './login.css'
-// import {useNevigate} from 'react-router-dom';
-const Login = () => {
+import { useNavigate } from 'react-router-dom';
 
+
+const Login = () => {
+    const navigate = useNavigate();
     const [getData,setData] = useState({
          email:'',
          password:''
     })
-// const navigate=useNevigate();
+
     const [getError,setError] = useState('')
 
     const onChangeHandler=(event)=>{
@@ -23,7 +25,7 @@ const Login = () => {
          }
          axios.post('http://localhost:8080/api/user/login',getData).then(()=>{
             alert("successful");
-            // useNevigate("/dashboard");
+          navigate('/dashboard');
             setError('');
          }).catch((error)=>{
             if(error && error.response && error.response.data){
@@ -36,6 +38,8 @@ const Login = () => {
     return (
     <div className="container">
         <div className="logo"><img src="./Logo.svg" alt="logo"/></div>
+        <p className='para'>online project management</p> 
+       
         <div >
            {getError && <h1 style={{color:'red'}}>{getError}</h1>} 
             <form className="main-user">

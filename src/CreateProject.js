@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import axios from 'axios'
 import "./CreatProject.css";
-
+import { useNavigate } from 'react-router-dom';
  let initialValue={
   name:"",
   reason: 'Business',
@@ -16,6 +16,7 @@ import "./CreatProject.css";
 }
 
 function CreateProject() {
+  const navigate = useNavigate();
   const[handle, setHandle]=useState(initialValue);
 function projectHandler(){
 console.log(handle);
@@ -24,13 +25,14 @@ console.log(handle);
 .then((data)=>{
 console.log(data);
 
-// setHandle(data);
+
  })
 .catch(error=>{
 console.log(error)
 });
 
 alert("your data successfully save");
+navigate('/projectlist');
 setHandle(
   initialValue
   );
@@ -46,10 +48,8 @@ const handleInputChange =(e)=>{
 };
   return (
     <main className="CreatprojectMain-container">
-      <div className="CreatprojectMain-title">
-       
-        
-      </div>
+     
+      <div className="logo" ><img src="./Logo.svg" alt="logo"/></div>
 
       <div className="CreatprojectMain-cards">
         <div className="CreatprojectMain-card">
